@@ -28,37 +28,64 @@ echo '</div>';
 echo '<div id="modalTELEGRAM" class="modal"><div class="modal-content">';
 ?>
 <span class="modal-content_close" onclick="closeModal('modalTELEGRAM')">&times;</span>
+<style>
+.lang-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.lang-btn:hover {
+    background-color: #0056b3;
+}
+
+.lang-form {
+    display: none;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.lang-form p {
+    margin: 0 0 10px;
+    color: #333;
+}
+.lang-content {
+    display: none;
+}
+
+.lang-content.active {
+    display: block;
+}
+</style>
+<div class="lang-switcher" data-lang-group="block1">
+    <button class="lang-button" data-lang="EN">EN</button>
+    <button class="lang-button" data-lang="UA">UA</button>
+
+    <div class="lang-content" data-lang="EN">Content in English</div>
+    <div class="lang-content" data-lang="UA">Контент українською</div>
+</div>
+
+<div class="lang-switcher" data-lang-group="block2">
+    <button class="lang-button" data-lang="EN">EN</button>
+    <button class="lang-button" data-lang="UA">UA</button>
+
+    <div class="lang-content" data-lang="EN">Another English Content</div>
+    <div class="lang-content" data-lang="UA">Ще один український контент</div>
+</div>
+
 <?php
 /////////// Заголовок
-echo '<div class="modal-content_UAEN">';
 
-echo '<a class="ENbutton">';
-echo '<div class="modal-content_UAEN-BTN">';
-echo 'EN';
-echo '</div>';
-echo '</a>';
 
-echo '<a class="UAbutton">';
-echo '<div class="modal-content_UAEN-BTN">';
-echo 'UA';
-echo '</div>';
-echo '</a>';
-
-echo '</div>';
-
-echo '<div class="modal_form-container">'; // Текст завдання
-
-// Текст EN
-echo '<div class="modal_form ENform">
-<p>English Content</p>
-</div>';
-
-// Текст UA
-echo '<div class="modal_form UAform" style="display:none;">
-<p>Якщо Ти хочеш бути в курсі всіх останніх новин...</p>
-</div>';
-
-echo '</div>'; // Закриття container
 
 ////////////////////////////\
 echo '</div></div>';
@@ -165,9 +192,4 @@ echo '</a>';
 
 
 echo '</div>';
-
-
-
-
-
 ?>

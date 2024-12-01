@@ -20,6 +20,7 @@ header('Location: login.php');
 exit();
 }
 
+
 echo '<div class="modal-content_UAEN">';
 
 echo '<a id="ENbutton">';
@@ -91,3 +92,4 @@ echo '</div>';//echo '<div class="form-container">';
         document.getElementById('toggleForm').submit();
     }
 </script>
+

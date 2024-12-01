@@ -18,6 +18,40 @@
 <!---->
 
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Знаходимо всі блоки перемикачів
+    const switchers = document.querySelectorAll(".lang-switcher");
+
+    switchers.forEach(switcher => {
+        const buttons = switcher.querySelectorAll(".lang-button");
+        const contents = switcher.querySelectorAll(".lang-content");
+
+        // Додаємо обробник кліків для кожної кнопки
+        buttons.forEach(button => {
+            button.addEventListener("click", function () {
+                const lang = button.getAttribute("data-lang");
+
+                // Оновлюємо контент для відповідної мови
+                contents.forEach(content => {
+                    if (content.getAttribute("data-lang") === lang) {
+                        content.classList.add("active");
+                    } else {
+                        content.classList.remove("active");
+                    }
+                });
+            });
+        });
+
+        // Початковий стан — показуємо контент для "EN" (можна змінити на іншу мову за потреби)
+        contents.forEach(content => {
+            if (content.getAttribute("data-lang") === "EN") {
+                content.classList.add("active");
+            }
+        });
+    });
+});
+</script>
 
 <!---->
 <script>
