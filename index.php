@@ -144,23 +144,29 @@ echo '</div>';
 include_once 'foot.php';
 ?>
 <script>
-document.addEventListener("load", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const ENButton = document.getElementById("ENbutton");
     const UAButton = document.getElementById("UAbutton");
     const ENForm = document.getElementById("ENform");
     const UAForm = document.getElementById("UAform");
 
-    ENButton.addEventListener("click", function () {
-        ENForm.style.display = "block";
+    // Перевірка наявності елементів перед додаванням слухачів
+    if (ENButton && UAButton && ENForm && UAForm) {
+        ENButton.addEventListener("click", function () {
+            ENForm.style.display = "block";
+            UAForm.style.display = "none";
+        });
+
+        UAButton.addEventListener("click", function () {
+            ENForm.style.display = "none";
+            UAForm.style.display = "block";
+        });
+
+        // Початковий стан
+        ENForm.style.display = "block"; 
         UAForm.style.display = "none";
-    });
-
-    UAButton.addEventListener("click", function () {
-        ENForm.style.display = "none";
-        UAForm.style.display = "block";
-    });
-
-    ENForm.style.display = "block";
-    UAForm.style.display = "none";
+    } else {
+        console.error("Не знайдено елементи для маніпуляцій!");
+    }
 });
 </script>
