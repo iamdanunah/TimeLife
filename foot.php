@@ -13,74 +13,11 @@
 <script src="js/coin_flip.js" defer></script>
 <!---->
 
-<!-- Таймер -->
-<script src="js/timer_script.js"></script>
+
+<!-- Модальне вікно -->
+<script src="js/modal.js"></script>
 <!---->
 
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    // Знаходимо всі блоки перемикачів
-    const switchers = document.querySelectorAll(".lang-switcher");
-
-    switchers.forEach(switcher => {
-        const buttons = switcher.querySelectorAll(".lang-button");
-        const contents = switcher.querySelectorAll(".lang-content");
-
-        // Додаємо обробник кліків для кожної кнопки
-        buttons.forEach(button => {
-            button.addEventListener("click", function () {
-                const lang = button.getAttribute("data-lang");
-
-                // Оновлюємо контент для відповідної мови
-                contents.forEach(content => {
-                    if (content.getAttribute("data-lang") === lang) {
-                        content.classList.add("active");
-                    } else {
-                        content.classList.remove("active");
-                    }
-                });
-            });
-        });
-
-        // Початковий стан — показуємо контент для "EN" (можна змінити на іншу мову за потреби)
-        contents.forEach(content => {
-            if (content.getAttribute("data-lang") === "EN") {
-                content.classList.add("active");
-            }
-        });
-    });
-});
-</script>
-
-<!---->
-<script>
-// Відкриття модального вікна
-function openModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.style.display = "block";
-    }
-}
-
-// Закриття модального вікна
-function closeModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.style.display = "none";
-    }
-}
-
-// Закриття модального вікна при кліку поза його межами
-window.onclick = function(event) {
-    const modals = document.querySelectorAll('.modal');
-    modals.forEach(function(modal) {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    });
-};
-</script>
 
 <script>
 let remainingTime = <?= $current_timer ?>; // Залишок часу з PHP
